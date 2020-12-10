@@ -5,6 +5,7 @@ $(function () {
 });
 
 const startScanner = () => {
+    
     Quagga.init({
         inputStream: {
             name: "Live",
@@ -16,8 +17,8 @@ const startScanner = () => {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 15,
-                width: 1280,
-                height: 720,
+                width: window.innerWidth,
+                height: window.innerHeight,
                 facingMode: "environment"
             },
         },
