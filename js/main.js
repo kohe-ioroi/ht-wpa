@@ -7,38 +7,27 @@ $(function () {
 const startScanner = () => {
     Quagga.init({
         inputStream: {
-            name: "Live",
-            type: "LiveStream",
-            target: document.querySelector('#photo-area'),
-            constraints: {
-                decodeBarCodeRate: 3,
-                successTimeout: 500,
-                codeRepetition: true,
-                tryVertical: true,
-                frameRate: 20,
-                width: 720,
-                height: 1280,
-                facingMode: "environment"
-            },
+          name: 'Live',
+          type: 'LiveStream',
+          target: document.querySelector('#photo-area'), //埋め込んだdivのID
+          constraints: {
+            facingMode: 'environment',
+          },
         },
+        locator: {
+          patchSize: 'medium',
+          halfSample: true,
+        },
+        numOfWorkers: 2,
         decoder: {
-            readers: [
-                "ean_reader"
-            ]
+          readers: ['ean_reader'] //ISBNは基本的にこれ（他にも種類あり）
         },
-
-    }, function (err) {
-        if (err) {
-            console.log(err);
-            return
+        locate: true,
+      }, (err) => {
+        if(!err) {
+          Quagga.start();
         }
-
-        console.log("Initialization finished. Ready to start");
-        Quagga.start();
-
-        // Set flag to is running
-        _scannerIsRunning = true;
-    });
+      })}
 
     Quagga.onProcessed(function (result) {
         var drawingCtx = Quagga.canvas.ctx.overlay,
