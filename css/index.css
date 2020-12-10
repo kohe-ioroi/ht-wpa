@@ -4,8 +4,8 @@
 
 #photo-area.viewport canvas, video {
    float: left;
-   width: 320px;
-   height: 240px;
+   width: 640px;
+   height: 480px;
    object-fit: none
 }
 
