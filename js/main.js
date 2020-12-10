@@ -17,8 +17,8 @@ const startScanner = () => {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 15,
-                width: 300,
-                height: 300,
+                width: 320,
+                height: 240,
                 facingMode: "environment"
             },
         },
