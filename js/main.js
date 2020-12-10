@@ -5,7 +5,6 @@ $(function () {
 });
 
 const startScanner = () => {
-    
     Quagga.init({
         inputStream: {
             name: "Live",
@@ -17,8 +16,8 @@ const startScanner = () => {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 15,
-                width: 320,
-                height: 240,
+                width: 352,
+                height: 288,
                 facingMode: "environment"
             },
         },
@@ -84,7 +83,7 @@ const startScanner = () => {
     });
 
     //barcode read call back
-    Quagga.onDetected(function (result) {;
-        alert(result.codeResult.code);
+    Quagga.onDetected(function (result) {
+        console.log(result.codeResult.code);
     });
 }
