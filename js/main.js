@@ -15,9 +15,9 @@ const startScanner = () => {
                 successTimeout: 500,
                 codeRepetition: true,
                 tryVertical: true,
-                frameRate: 10,
-                width: 640,
-                height: 480,
+                frameRate: 15,
+                width: 1280,
+                height: 720,
                 facingMode: "environment"
             },
         },
@@ -83,7 +83,6 @@ const startScanner = () => {
     });
 
     //barcode read call back
-    Quagga.onDetected(function (result) {
-        alert(str(result.codeResult.code));
+    Quagga.onDetected(function (result) {;
     });
 }
