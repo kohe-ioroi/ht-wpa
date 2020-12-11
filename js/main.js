@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.5.0")
+    alert("V1.5.1")
     startScanner();
 });
 
@@ -35,6 +35,22 @@ function showload(){
 function showmain(){
     $("#load").fadeOut();
     $("#main").fadeIn();
+}
+function calc(isbn) {
+    const arrIsbn = isbn
+        .toString()
+        .split("")
+        .map(num => parseInt(num));
+    let remainder = 0;
+    const checkDigit = arrIsbn.pop();
+
+    arrIsbn.forEach((num, index) => {
+        remainder += num * (index % 2 === 0 ? 1 : 3);
+    });
+    remainder %= 10;
+    remainder = remainder === 0 ? 0 : 10 - remainder;
+
+    return checkDigit === remainder;
 }
 const startScanner = () => {
     Quagga.init({
@@ -75,10 +91,12 @@ const startScanner = () => {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
+        if(calc(code)) {
         showload();
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        sendRequest(code);        
+        sendRequest(code);
+        };
     });
-}
+};
