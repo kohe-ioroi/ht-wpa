@@ -2,10 +2,16 @@
     height: 80%;
     width:80%;
     margin: 0 auto;
+    text-align:center;
  }
  #photo-area.viewport canvas, video {
     float: left;
     width:80%;
     height: 80%;
     margin: 0 auto;
+    text-align:center;
  }
+ #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
+   margin-left: -1280px;
+   text-align:center;
+}

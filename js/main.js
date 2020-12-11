@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.4.2")
+    alert("V1.4.3")
     startScanner();
 });
 
@@ -19,7 +19,7 @@ function sendRequest(code) {
 function displayData(data) {
     alert(data);
     arrayd=data.split(',');
-    alert("部門:"+arrayd[0]+"JANコード:"+arrayd[1]+"商品名:"+arrayd[2]+"台番:"+arrayd[6]+"列:"+arrayd[7]+"行:"+arrayd[8]);
+    alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\n台番:"+arrayd[6]+"\n列:"+arrayd[7]+"\n行:"+arrayd[8]);
     startScanner();
 }
 
@@ -47,7 +47,8 @@ const startScanner = () => {
         },
         decoder: {
             readers: [
-                "ean_reader"
+                "ean_reader",
+                "ean_8_reader"
             ]
         },
 
@@ -57,7 +58,6 @@ const startScanner = () => {
             return
         }
 
-        console.log("Initialization finished. Ready to start");
         Quagga.start();
 
         // Set flag to is running
