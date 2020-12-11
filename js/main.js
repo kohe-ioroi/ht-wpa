@@ -104,10 +104,8 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if(calc(code)){
             Quagga.pause();
-            _scannerIsRunning = false;
             alert(code);
-            Quagga.start();
-            _scannerIsRunning = true;
+            setTimeout("Quagga.start()",5000)
         }
     });
 }
