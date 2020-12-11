@@ -85,7 +85,8 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        $.get('https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec',{"JAN":code},function(e){alert(e);})
+        var res = UrlFetchApp.fetch('https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?JAN='+JAN);
+        alert(res);
         setTimeout(startScanner(),1000);        
         });
 }
