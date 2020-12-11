@@ -101,7 +101,18 @@ const startScanner = () => {
       }
       
     Quagga.onDetected(function (result) {
-        var code = result.codeResult.code;
-        if(calc(code)) alert(code);
+        
+        
+
+        // Set flag to is running
+        
+        if(calc(code)){
+            Quagga.stop();
+            _scannerIsRunning = false;
+            var code = result.codeResult.code;
+            alert(code);
+            Quagga.start();
+            _scannerIsRunning = true;
+        }
     });
 }
