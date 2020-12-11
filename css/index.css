@@ -5,9 +5,7 @@
    margin-right:10%;
    margin-left:10%;
 }
-.loading{
-   width:60%;
-   margin:0 auto;
+#main{
 }
 #load{
    display: none;
@@ -17,6 +15,6 @@
    left:0;
    right:0;
    margin:auto;
-   width:150px;
-   height:150px;
+   width:100px;
+   height:100px;
 }
