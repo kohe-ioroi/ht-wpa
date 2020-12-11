@@ -1,15 +1,16 @@
 $(function () {
-    alert("V1.3.8")
+    alert("V1.3.9")
     startScanner();
 });
 
 function sendRequest(code) {
+    var paramdata = {
+        "JAN":code
+    }
     jQuery.ajax({
     type: 'GET',
     url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
-    data: {
-        JAN:code
-    },
+    data: paramdata,
     dataType: 'text',
     crossDomain: true,
     success: displayData(data),
