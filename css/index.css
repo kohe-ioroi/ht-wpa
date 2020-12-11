@@ -1,11 +1,14 @@
 #photo-area.viewport {
     height: 80%;
     width:80%;
+    margin: 0 auto;
  }
  #photo-area.viewport canvas, video {
     float: left;
     width:80%;
     height: 80%;
+    margin: 0 auto;
  }
  #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
- }
+   margin-left: -1280;
+}
