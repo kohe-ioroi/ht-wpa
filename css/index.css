@@ -1,12 +1,9 @@
 #photo-area{
-   margin:0 auto;
    width:90%;
    height:50%;
  }
 #main{
    text-align:center;
-   margin-left:auto;
-   margin-right:auto;
 }
 #load{
    display: none;
