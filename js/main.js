@@ -104,7 +104,7 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if (beforecode != code){
         if(calc(code)){
-            beforecode = code
+            var beforecode = code
             Quagga.pause();
             alert(code);
         }};
