@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.4.3")
+    alert("V1.4.5")
     startScanner();
 });
 
@@ -17,14 +17,13 @@ function sendRequest(code) {
 }
 
 function displayData(data) {
-    alert(data);
     arrayd=data.split(',');
     alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\n台番:"+arrayd[6]+"\n列:"+arrayd[7]+"\n行:"+arrayd[8]);
     startScanner();
 }
 
 function ajaxerror(){
-    alert("opps!");
+    alert("エラー！多分DBにありません...");
     startScanner();
 }
 
@@ -48,7 +47,6 @@ const startScanner = () => {
         decoder: {
             readers: [
                 "ean_reader",
-                "ean_8_reader"
             ]
         },
 
