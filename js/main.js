@@ -104,7 +104,7 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if (code != beforecode){
             if(calc(code)){
-                var beforecode = code
+                var beforecode = code;
                 alert(code);
             };
         };
