@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.2.3")
+    alert("V1.2.5")
     startScanner();
 });
 const startScanner = () => {
@@ -85,20 +85,19 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        var url='https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?JAN='+str(JAN);
-        var request = new XMLHttpRequest();
-        request.open('GET', url);
-        request.onreadystatechange = function () {
-            if (request.readyState != 4) {
-                // リクエスト中
-            } else if (request.status != 200) {
-                // 失敗
-            } else {
-                // 取得成功
-                alert(request.responseText);
-            }
-        };
-        request.send(null);
+        var url='JAN='+str(JAN);
+        const endpoint = "https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?";
+    $.ajax({
+        type: 'GET',
+        url: endpoint,
+        dataType: 'jsonp',
+        data: {
+            JAN: str(JAN)
+        },
+        success: out => {
+            alert(out.message);
+        }
+    });
         setTimeout(startScanner(),1000);        
         });
 }
