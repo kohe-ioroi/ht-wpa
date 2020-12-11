@@ -85,8 +85,20 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        var res = UrlFetchApp.fetch('https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?JAN='+JAN);
-        alert(res);
+        var url='https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?JAN='+str(JAN);
+        var request = new XMLHttpRequest();
+        request.open('GET', url);
+        request.onreadystatechange = function () {
+            if (request.readyState != 4) {
+                // リクエスト中
+            } else if (request.status != 200) {
+                // 失敗
+            } else {
+                // 取得成功
+                alert(request.responseText);
+            }
+        };
+        request.send(null);
         setTimeout(startScanner(),1000);        
         });
 }
