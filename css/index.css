@@ -9,6 +9,3 @@
     height: 80%;
     margin: 0 auto;
  }
- #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
-   margin-left: -1280;
-}

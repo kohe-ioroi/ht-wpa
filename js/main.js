@@ -1,5 +1,3 @@
-const { Quagga } = require("./quagga.min");
-
 $(function () {
 
     startScanner();
@@ -42,8 +40,7 @@ const startScanner = () => {
         _scannerIsRunning = true;
     });
 
-    Quagga.onProcessed(function (result) {
-        });
+    Quagga.onProcessed(function (result) {});
 
     //barcode read call back
     const calc = isbn => {
@@ -64,11 +61,7 @@ const startScanner = () => {
       }
       
     Quagga.onDetected(function (result) {
-        Quagga.stop();
-        _scannerIsRunning = false;
         var code = result.codeResult.code;
         if(calc(code)) alert(code);
-        Quagga.start();
-        
     });
 }
