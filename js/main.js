@@ -1,12 +1,10 @@
 $(function () {
-    alert("V1.3.9")
+    alert("V1.4.0")
     startScanner();
 });
 
 function sendRequest(code) {
-    var paramdata = {
-        "JAN":code
-    }
+    var paramdata = {"JAN":code};
     jQuery.ajax({
     type: 'GET',
     url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
@@ -19,9 +17,9 @@ function sendRequest(code) {
 }
 
 function displayData(data) {
-    alert(str(data));
+    alert(data);
     array=data.csvString.split(',');
-    alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
+    alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8]);
     startScanner();
 }
 
