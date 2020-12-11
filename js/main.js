@@ -14,14 +14,12 @@ Quagga.init({
       },
     },
     locator: {
-      patchSize: 'medium',
-      halfSample: true,
     },
     numOfWorkers: 2,
     decoder: {
       readers: ['ean_reader']//ISBNは基本的にこれ（他にも種類あり）
     },
-    locate: false,
+    locate: true,
   }, (err) => {
     if(!err) {
       Quagga.start();
@@ -30,7 +28,7 @@ Quagga.init({
   })
   
   Quagga.onDetected(success => {
-    const code = success.codeResult.code;
+    var code = success.codeResult.code;
     if(calc(code)) alert(code);
   })
   
