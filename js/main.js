@@ -11,7 +11,7 @@ function sendRequest(JAN) {
     },
     dataType: 'text',
     crossDomain: true,
-    }.then(function(data){displayData(data);},alert("Opps."))
+    }.then(function(data){displayData(data);},ajaxerror())
     );
     }
     
@@ -20,7 +20,10 @@ function displayData(data) {
     alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
     startScanner()
     }
-
+function ajaxerror(){
+    alert("opps!");
+    startScanner();
+}
 const startScanner = () => {
     Quagga.init({
         inputStream: {

@@ -12,6 +12,6 @@ function sendRequest() {
     }
     
 function displayData(data) {
-    alert(data);
+    array=data.csvString.split(',');
     }
 sendRequest();
