@@ -1,13 +1,13 @@
 $(function () {
-    alert("V1.3.1")
+    alert("V1.3.2")
     startScanner();
 });
-function sendRequest(JAN) {
+function sendRequest(e) {
     jQuery.ajax({
     type: 'GET',
     url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
     data: {
-    JAN:JAN
+    'JAN':e
     },
     dataType: 'text',
     crossDomain: true,
@@ -108,6 +108,6 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        sendRequest(str(code));        
-        });
+        sendRequest(code);        
+    });
 }
