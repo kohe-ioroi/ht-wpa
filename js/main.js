@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.5.1")
+    alert("V1.5.2")
     startScanner();
 });
 
@@ -93,6 +93,7 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if(calc(code)) {
         showload();
+        navigator.vibrate(200);
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
