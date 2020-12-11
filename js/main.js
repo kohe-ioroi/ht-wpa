@@ -1,7 +1,6 @@
 $(function () {
-    alert("V1.0.8")
+    alert("V1.0.9")
     startScanner();
-    let beforecode;
 });
 
 const startScanner = () => {
@@ -82,27 +81,9 @@ const startScanner = () => {
         }
     });
 
-    //barcode read call back
-    const calc = isbn => {
-        var arrIsbn = isbn
-          .toString()
-          .split("")
-          .map(num => parseInt(num));
-        var remainder = 0;
-        var checkDigit = arrIsbn.pop();
-      
-        arrIsbn.forEach((num, index) => {
-          remainder += num * (index % 2 === 0 ? 1 : 3);
-        });
-        remainder %= 10;
-        remainder = remainder === 0 ? 0 : 10 - remainder;
-      
-        return checkDigit === remainder;
-      }
-      
     Quagga.onDetected(function (result) {
-        code = result.codeResult.code;
-        Quagga.stop()
+        var code = result.codeResult.code;
+        Quagga.stop();
         alert(code);
         setTimeout(startScanner(),1000);        
     });
