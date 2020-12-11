@@ -2,6 +2,25 @@ $(function () {
     alert("V1.2.5")
     startScanner();
 });
+function sendRequest(JAN) {
+    jQuery.ajax({
+    type: 'GET',
+    url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
+    data: {
+    JAN:JAN
+    },
+    dataType: 'text',
+    crossDomain: true,
+    }.then(function(data){displayData(data);},alert("Opps."))
+    );
+    }
+    
+function displayData(data) {
+    array=data.csvString.split(',');
+    alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
+    startScanner()
+    }
+
 const startScanner = () => {
     Quagga.init({
         inputStream: {
@@ -85,19 +104,6 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        var url='JAN='+str(JAN);
-        const endpoint = "https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?";
-    $.ajax({
-        type: 'GET',
-        url: endpoint,
-        dataType: 'jsonp',
-        data: {
-            JAN: str(JAN)
-        },
-        success: out => {
-            alert(out.message);
-        }
-    });
-        setTimeout(startScanner(),1000);        
+        sendRequest(str(JAN));        
         });
 }
