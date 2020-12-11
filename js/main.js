@@ -105,7 +105,7 @@ const startScanner = () => {
         if(calc(code)){
             Quagga.pause();
             alert(code);
-            setTimeout("Quagga.start()",5000)
+            setTimeout(Quagga.start(),5000)
         }
     });
 }
