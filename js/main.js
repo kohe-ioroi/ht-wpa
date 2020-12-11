@@ -84,6 +84,6 @@ const startScanner = () => {
 
     //barcode read call back
     Quagga.onDetected(function (result) {
-        alert(str(result.codeResult.code));
+        alert("detected!");
     });
 }
