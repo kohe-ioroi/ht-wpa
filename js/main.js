@@ -4,8 +4,8 @@ Quagga.init({
       type: 'LiveStream',
       target: document.querySelector('#interactive'),//埋め込んだdivのID
       constraints: {
-          width:640,
-          height:480,
+        width:640,
+        height:480,
         facingMode: 'environment',
       },
       area: {//必要ならバーコードの読み取り範囲を調整できる（この場合は、上30%/下30%は読み取りしない）
