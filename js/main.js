@@ -65,6 +65,7 @@ const startScanner = () => {
       
     Quagga.onDetected(function (result) {
         Quagga.stop();
+        _scannerIsRunning = false;
         var code = result.codeResult.code;
         if(calc(code)) alert(code);
         Quagga.start();
