@@ -12,7 +12,7 @@
     
  }
 #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
-   margin-left: -1280px;
+   margin-left: -640px;
    text-align:center;
 }
 #main{
@@ -21,7 +21,7 @@
 }
 #load{
    display:none;
-   left:50%;
-   top:50%;
-   margin-left:-44px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
