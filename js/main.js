@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.5.3")
+    alert("V1.5.5\nこれはテストバージョンです。")
     startScanner();
 });
 
@@ -24,7 +24,7 @@ function displayData(data) {
 }
 
 function ajaxerror(){
-    alert("エラー！DBに無いか、接続エラーです。");
+    alert("エラー！\nDBにデータが無いか、不正なコードです。\nもう一度読み取りして下さい。");
     showmain();
     startScanner();
 }
