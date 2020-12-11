@@ -101,15 +101,10 @@ const startScanner = () => {
       }
       
     Quagga.onDetected(function (result) {
-        
-        
-
-        // Set flag to is running
-        
+        var code = result.codeResult.code;
         if(calc(code)){
             Quagga.stop();
             _scannerIsRunning = false;
-            var code = result.codeResult.code;
             alert(code);
             Quagga.start();
             _scannerIsRunning = true;
