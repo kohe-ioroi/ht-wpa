@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.2.2")
+    alert("V1.2.3")
     startScanner();
 });
 const startScanner = () => {
