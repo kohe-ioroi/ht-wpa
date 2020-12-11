@@ -1,6 +1,7 @@
 #photo-area.viewport canvas, video {
    float: left;
    height: 480px;
+   text-align: center;
 }
 #main{
    text-align:center;
