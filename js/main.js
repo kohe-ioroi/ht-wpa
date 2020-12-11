@@ -1,52 +1,82 @@
-Quagga.init({
-    inputStream: {
-      name: 'Live',
-      type: 'LiveStream',
-      target: document.querySelector('#interactive'),//埋め込んだdivのID
-      constraints: {
-        facingMode: 'environment',
-      },
-      area: {//必要ならバーコードの読み取り範囲を調整できる（この場合は、上30%/下30%は読み取りしない）
-        top: "30%",
-        right: "0%",
-        left: "0%",
-        bottom: "30%"
-      },
+var Quagga = window.Quagga;
+var App = {
+    _scanner: null,
+    init: function() {
+        this.attachListeners();
     },
-    locator: {
-      patchSize: 'medium',
-      halfSample: true,
+    activateScanner: function() {
+        var scanner = this.configureScanner('.overlay__content'),
+            onDetected = function (result) {
+                document.querySelector('input.isbn').value = result.codeResult.code;
+                stop();
+            }.bind(this),
+            stop = function() {
+                scanner.stop();  // should also clear all event-listeners?
+                scanner.removeEventListener('detected', onDetected);
+                this.hideOverlay();
+                this.attachListeners();
+            }.bind(this);
+
+        this.showOverlay(stop);
+        scanner.addEventListener('detected', onDetected).start();
     },
-    numOfWorkers: 2,
-    decoder: {
-      readers: ['ean_reader']//ISBNは基本的にこれ（他にも種類あり）
+    attachListeners: function() {
+        var self = this,
+            button = document.querySelector('.input-field input + button.scan');
+
+        button.addEventListener("click", function onClick(e) {
+            e.preventDefault();
+            button.removeEventListener("click", onClick);
+            self.activateScanner();
+        });
     },
-    locate: true,
-  }, (err) => {
-    if(!err) {
-      Quagga.start();
-      // alert("started");
+    showOverlay: function(cancelCb) {
+        if (!this._overlay) {
+            var content = document.createElement('div'),
+                closeButton = document.createElement('div');
+
+            closeButton.appendChild(document.createTextNode('X'));
+            content.className = 'overlay__content';
+            closeButton.className = 'overlay__close';
+            this._overlay = document.createElement('div');
+            this._overlay.className = 'overlay';
+            this._overlay.appendChild(content);
+            content.appendChild(closeButton);
+            closeButton.addEventListener('click', function closeClick() {
+                closeButton.removeEventListener('click', closeClick);
+                cancelCb();
+            });
+            document.body.appendChild(this._overlay);
+        } else {
+            var closeButton = document.querySelector('.overlay__close');
+            closeButton.addEventListener('click', function closeClick() {
+                closeButton.removeEventListener('click', closeClick);
+                cancelCb();
+            });
+        }
+        this._overlay.style.display = "block";
+    },
+    hideOverlay: function() {
+        if (this._overlay) {
+            this._overlay.style.display = "none";
+        }
+    },
+    configureScanner: function(selector) {
+        if (!this._scanner) {
+            this._scanner = Quagga
+                .decoder({readers: ['ean_reader']})
+                .locator({patchSize: 'medium'})
+                .fromVideo({
+                    target: selector,
+                    constraints: {
+                        width: 800,
+                        height: 600,
+                        facingMode: "environment"
+                    }
+                });
+        }
+        return this._scanner;
     }
-  })
-  
-  Quagga.onDetected(success => {
-    const code = success.codeResult.code;
-    if(calc(code)) alert(code);
-  })
-  
-  const calc = isbn => {
-    const arrIsbn = isbn
-      .toString()
-      .split("")
-      .map(num => parseInt(num));
-    let remainder = 0;
-    const checkDigit = arrIsbn.pop();
-  
-    arrIsbn.forEach((num, index) => {
-      remainder += num * (index % 2 === 0 ? 1 : 3);
-    });
-    remainder %= 10;
-    remainder = remainder === 0 ? 0 : 10 - remainder;
-  
-    return checkDigit === remainder;
-  }
+};
+App.init();
+                
