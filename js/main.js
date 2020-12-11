@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.3.3")
+    alert("V1.3.4")
     startScanner();
 });
 function sendRequest(e) {
@@ -11,16 +11,16 @@ function sendRequest(e) {
     },
     dataType: 'text',
     crossDomain: true,
-    success: function(data){displayData(data);},
-    error: function(){ajaxerror();} }
+    success: displayData(data),
+    error: ajaxerror()}
     );
     }
     
 function displayData(data) {
+    startScanner()
     alert(str(data));
     array=data.csvString.split(',');
     alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
-    startScanner()
     }
 function ajaxerror(){
     alert("opps!");
