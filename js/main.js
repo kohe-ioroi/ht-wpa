@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.4.7")
+    alert("V1.4.8")
     startScanner();
 });
 
