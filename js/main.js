@@ -2,19 +2,24 @@ $(function () {
     alert("V1.3.4")
     startScanner();
 });
-function sendRequest(e) {
+function sendRequest(code) {
     jQuery.ajax({
     type: 'GET',
     url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
     data: {
-    'JAN':e
+        JAN:code
     },
     dataType: 'text',
     crossDomain: true,
-    success: displayData(data),
-    error: ajaxerror()}
-    );
+    success: function(data){displayData(data);},
+    error: function(){ajaxerror();}
+    });
+}
+    
+function displayData(data) {
+    alert(data);
     }
+sendRequest();
     
 function displayData(data) {
     startScanner()
