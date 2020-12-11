@@ -1,7 +1,7 @@
-#photo-area{
-   width:90%;
-   height:50%;
- }
+#photo-area.viewport canvas, video {
+   float: left;
+   height: 480px;
+}
 #main{
    text-align:center;
 }
