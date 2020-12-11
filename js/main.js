@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.0.6")
+    alert("V1.0.7")
     startScanner();
     let beforecode;
 });
