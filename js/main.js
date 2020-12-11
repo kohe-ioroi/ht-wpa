@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.1.1")
+    alert("V1.1.2")
     startScanner();
 });
 
@@ -83,8 +83,10 @@ const startScanner = () => {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
+        Quagga.offProcessed(); 
+        Quagga.offDetected(); 
         Quagga.stop();
         alert(code);
-        setTimeout(Quagga.init(),1000);        
+        setTimeout(startScanner(),1000);        
     });
 }
