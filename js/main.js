@@ -2,7 +2,6 @@ $(function () {
     alert("V1.1.2")
     startScanner();
 });
-
 const startScanner = () => {
     Quagga.init({
         inputStream: {
@@ -86,7 +85,25 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        alert(code);
+        var url = "";
+        fetch('https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?JAN='+code, {
+        method: "GET",
+        mode: "cors"
+        })
+        .then(response => {
+        if (response.ok) {
+          alert(response.json());
+        }
+        // 404 や 500 ステータスならここに到達する
+        throw new Error('Network response was not ok.');
+        })
+        .then(resJson => {
+        console.log(JSON.stringify(resJson));
+        })
+        .catch(error => {
+        // ネットワークエラーの場合はここに到達する
+        console.error(error);
+        })
         setTimeout(startScanner(),1000);        
-    });
+        });
 }
