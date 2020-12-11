@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.2.0")
+    alert("V1.2.1")
     startScanner();
 });
 const startScanner = () => {
@@ -92,7 +92,7 @@ const startScanner = () => {
         })
         .then(response => {
         if (response.ok) {
-          alert(response.json());
+          alert(response);
         }
         // 404 や 500 ステータスならここに到達する
         throw new Error('Network response was not ok.');
