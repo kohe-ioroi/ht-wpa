@@ -1,11 +1,15 @@
 #photo-area.viewport {
-    height: 480px;
-     width:640px;
+    height: 80%;
+     width:80%;
+     margin:0 auto;
+     max-width:600px;
  }
  #photo-area.viewport canvas, video {
     float: left;
-     width:640px;
-    height: 480px;
+     width:80%;
+    height: 80%;
+    margin:0 auto;
+    max-width:600px;
  }
  #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
  }
