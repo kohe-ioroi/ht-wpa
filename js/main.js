@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.4.6")
+    alert("V1.4.7")
     startScanner();
 });
 
@@ -19,14 +19,23 @@ function sendRequest(code) {
 function displayData(data) {
     arrayd=data.split(',');
     alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\n台番:"+arrayd[6]+"\n列:"+arrayd[7]+"\n行:"+arrayd[8]);
+    showmain();
     startScanner();
 }
 
 function ajaxerror(){
     alert("エラー！DBに無いか、接続エラーです。");
+    showmain();
     startScanner();
 }
-
+function showload(){
+    $("#main").fadeOut();
+    $("#load").fadeIn();
+}
+function showmain(){
+    $("#load").fadeOut();
+    $("#main").fadeIn();
+}
 const startScanner = () => {
     Quagga.init({
         inputStream: {
@@ -66,6 +75,7 @@ const startScanner = () => {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
+        showload();
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
