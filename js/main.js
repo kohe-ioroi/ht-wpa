@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.4.1")
+    alert("V1.4.2")
     startScanner();
 });
 
@@ -18,8 +18,8 @@ function sendRequest(code) {
 
 function displayData(data) {
     alert(data);
-    array=data.csvString.split(',');
-    alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8]);
+    arrayd=data.split(',');
+    alert("部門:"+arrayd[0]+"JANコード:"+arrayd[1]+"商品名:"+arrayd[2]+"台番:"+arrayd[6]+"列:"+arrayd[7]+"行:"+arrayd[8]);
     startScanner();
 }
 
