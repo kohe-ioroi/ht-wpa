@@ -1,7 +1,11 @@
+html,body{
+   height:100%;
+   width:100%;
+}
 #photo-area{
    margin:0 auto;
-   width:90%;
-   height:auto;
+   width:90vh;
+   height:50vh;
  }
 #main{
    text-align:center;
