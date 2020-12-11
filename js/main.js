@@ -21,7 +21,7 @@ Quagga.init({
     decoder: {
       readers: ['ean_reader']//ISBNは基本的にこれ（他にも種類あり）
     },
-    locate: true,
+    locate: false,
   }, (err) => {
     if(!err) {
       Quagga.start();
