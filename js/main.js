@@ -1,7 +1,7 @@
 $(function () {
     alert("V1.0.1")
     startScanner();
-
+    var beforecode
 });
 
 const startScanner = () => {
@@ -104,7 +104,7 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if (code != beforecode){
             if(calc(code)){
-                var beforecode = code;
+                beforecode = code;
                 alert(code);
             };
         };
