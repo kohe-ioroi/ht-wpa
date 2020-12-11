@@ -1,7 +1,7 @@
 $(function () {
-    alert("V1.0.1")
+    alert("V1.0.2")
     startScanner();
-    let beforecode;
+    var beforecode;
 });
 
 const startScanner = () => {
