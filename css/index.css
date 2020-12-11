@@ -1,8 +1,7 @@
-#photo-area.viewport {
-   position: absolute;
+#photo-area{
    margin:0 auto;
-   width:80%;
-   height:50%;
+   width:500px;
+   height:500px;
  }
 #main{
    text-align:center;
