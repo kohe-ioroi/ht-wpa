@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.3.7")
+    alert("V1.3.8")
     startScanner();
 });
 
@@ -12,8 +12,8 @@ function sendRequest(code) {
     },
     dataType: 'text',
     crossDomain: true,
-    success: function(data){displayData(data);},
-    error: function(){ajaxerror();}
+    success: displayData(data),
+    error: ajaxerror()
     });
 }
 
