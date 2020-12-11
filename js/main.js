@@ -104,5 +104,6 @@ const startScanner = () => {
         code = result.codeResult.code;
         Quagga.stop()
         alert(code);
+        startScanner()
     });
 }
