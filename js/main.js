@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.3.4")
+    alert("V1.3.5")
     startScanner();
 });
 function sendRequest(code) {
