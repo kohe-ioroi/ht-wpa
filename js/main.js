@@ -1,3 +1,5 @@
+const { Quagga } = require("./quagga.min");
+
 $(function () {
 
     startScanner();
@@ -62,7 +64,10 @@ const startScanner = () => {
       }
       
     Quagga.onDetected(function (result) {
+        Quagga.stop();
         var code = result.codeResult.code;
         if(calc(code)) alert(code);
+        Quagga.start();
+        
     });
 }
