@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/index.css" />
+    <script>
+        // manifestのlinkタグを生成
+        function setManifest(path) {
+            const manifest = document.createElement('link');
+            manifest.rel = 'manifest';
+            manifest.href = path;
+            document.head.appendChild(manifest);
+        }
+
+        // OSに応じて読み込むmanifestを変更
+        var userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.indexOf("iphone") > 0 || userAgent.indexOf("ipad") > 0) {
+            setManifest('manifest_ios.json')
+        } else {
+            setManifest('manifest.json')
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/pwacompat" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>HT</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js').then(function () { console.log('Service Worker Registered'); });
+        }
+    </script>
 </head>
 <body>
     <div id=load><img src="img/loading.gif" class="loading"><p class="loading"><center>通信中</center></p></div>

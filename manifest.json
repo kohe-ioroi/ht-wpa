@@ -1,0 +1,9 @@
+{
+    "name": "ハンディターミナル089",
+    "short_name": "HT089",
+    "display": "standalone",
+    "scope":"/ht-pwa/",
+    "start_url": "./index.html",
+    "icons": [
+    ]
+}
