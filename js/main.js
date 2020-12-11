@@ -1,7 +1,8 @@
 $(function () {
-    alert("V1.3.6")
+    alert("V1.3.7")
     startScanner();
 });
+
 function sendRequest(code) {
     jQuery.ajax({
     type: 'GET',
@@ -20,12 +21,14 @@ function displayData(data) {
     alert(str(data));
     array=data.csvString.split(',');
     alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
-    }
-    startScanner()
+    startScanner();
+}
+
 function ajaxerror(){
     alert("opps!");
     startScanner();
 }
+
 const startScanner = () => {
     Quagga.init({
         inputStream: {
