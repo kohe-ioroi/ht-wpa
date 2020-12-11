@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.3.5")
+    alert("V1.3.6")
     startScanner();
 });
 function sendRequest(code) {
@@ -15,18 +15,13 @@ function sendRequest(code) {
     error: function(){ajaxerror();}
     });
 }
-    
+
 function displayData(data) {
-    alert(data);
-    }
-sendRequest();
-    
-function displayData(data) {
-    startScanner()
     alert(str(data));
     array=data.csvString.split(',');
     alert("部門:"+array[0]+"JANコード:"+array[1]+"商品名:"+array[2]+"台番:"+array[6]+"列:"+array[7]+"行:"+array[8])
     }
+    startScanner()
 function ajaxerror(){
     alert("opps!");
     startScanner();
