@@ -8,5 +8,4 @@
     height: 480px;
  }
  #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
-    margin-left: -640px;
  }
