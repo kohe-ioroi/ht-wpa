@@ -108,6 +108,6 @@ const startScanner = () => {
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
-        sendRequest(str(JAN));        
+        sendRequest(str(code));        
         });
 }
