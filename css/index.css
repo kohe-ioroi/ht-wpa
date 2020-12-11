@@ -2,14 +2,12 @@
     height: 80%;
      width:80%;
      margin:0 auto;
-     max-width:600px;
  }
  #photo-area.viewport canvas, video {
     float: left;
      width:80%;
     height: 80%;
     margin:0 auto;
-    max-width:600px;
  }
  #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
  }
