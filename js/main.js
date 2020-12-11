@@ -4,6 +4,8 @@ Quagga.init({
       type: 'LiveStream',
       target: document.querySelector('#interactive'),//埋め込んだdivのID
       constraints: {
+          width:640,
+          height:480,
         facingMode: 'environment',
       },
       area: {//必要ならバーコードの読み取り範囲を調整できる（この場合は、上30%/下30%は読み取りしない）
@@ -14,6 +16,8 @@ Quagga.init({
       },
     },
     locator: {
+      patchSize: 'medium',
+      halfSample: true,
     },
     numOfWorkers: 2,
     decoder: {
@@ -28,7 +32,7 @@ Quagga.init({
   })
   
   Quagga.onDetected(success => {
-    var code = success.codeResult.code;
+    const code = success.codeResult.code;
     if(calc(code)) alert(code);
   })
   
