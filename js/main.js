@@ -93,7 +93,7 @@ const startScanner = () => {
         var code = result.codeResult.code;
         if(calc(code)) {
         showload();
-        navigator.vibrate(200);
+        navigator.notification.vibrate(100);
         Quagga.offProcessed(); 
         Quagga.offDetected(); 
         Quagga.stop();
