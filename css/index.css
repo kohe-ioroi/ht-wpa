@@ -5,7 +5,8 @@
    margin-right:10%;
    margin-left:10%;
 }
-#main{
+.loading{
+   text-align: center;
 }
 #load{
    display: none;
