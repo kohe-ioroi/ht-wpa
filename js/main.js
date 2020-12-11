@@ -101,10 +101,10 @@ const startScanner = () => {
       }
       
     Quagga.onDetected(function (result) {
-        var code = result.codeResult.code;
+        code = result.codeResult.code;
         if (code != beforecode){
             if(calc(code)){
-                var beforecode = code;
+                beforecode = code;
                 alert(code);
             };
         };
