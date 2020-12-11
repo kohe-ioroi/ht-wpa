@@ -1,7 +1,7 @@
 $(function () {
-    alert("V1.0.3")
+    alert("V1.0.4")
     startScanner();
-    var beforecode = "";
+    let beforecode;
 });
 
 const startScanner = () => {
@@ -102,9 +102,9 @@ const startScanner = () => {
       
     Quagga.onDetected(function (result) {
         code = result.codeResult.code;
-        if (code != beforecode){
+        if (str(code) != str(beforecode)){
             if(calc(code)){
-                beforecode = code;
+                beforecode = str(code);
                 alert(code);
             };
         };
