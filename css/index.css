@@ -1,13 +1,17 @@
 #photo-area.viewport {
     height: 480px;
      width:640px;
-     margin-left: 0px;
+     margin:0;
+     padding:0;
  }
  #photo-area.viewport canvas, video {
      width:640px;
     height: 480px;
-    margin-left: 0px;
+    margin:0;
+    padding:0;
  }
  #photo-area.viewport canvas.drawingBuffer, video.drawingBuffer {
-    margin-left: 0px;
+   position: absolute;
+   top: 0;
+   left: 0;
  }
