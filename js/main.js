@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.5.5\nこれはテストバージョンです。")
+    alert("V1.5.6\nこれは試験版です。")
     startScanner();
 });
 
@@ -18,7 +18,9 @@ function sendRequest(code) {
 
 function displayData(data) {
     arrayd=data.split(',');
-    alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\n台番:"+arrayd[6]+"\n列:"+arrayd[7]+"\n行:"+arrayd[8]);
+    pbcheck="X";
+    if(arrayd[4]){pbcheck="O"}
+    alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\nPB判定:"+pbcheck+"\n台番:"+arrayd[5]+"\n列:"+arrayd[6]+"\n行:"+arrayd[7]);
     showmain();
     startScanner();
 }
