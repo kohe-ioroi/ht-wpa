@@ -1,5 +1,5 @@
 $(function () {
-    alert("V1.5.6\nこれは試験版です。")
+    alert("V1.5.7\nこれは試験版です。")
     startScanner();
 });
 
@@ -76,6 +76,10 @@ function startScanner() {
                 "ean_reader",
             ]
         },
+        locator:{
+            halfSample: true,
+            patchSize: "small",
+        }
     }, function (err) {
         if (err) {
             console.log(err);
