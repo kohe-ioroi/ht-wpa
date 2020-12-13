@@ -1,6 +1,6 @@
 var scandata = []
 $(function () {
-    alert("V1.6.1\nこれは試験版です。")
+    alert("V1.6.2\nこれは試験版です。")
     startScanner();
 });
 
@@ -94,7 +94,7 @@ Array.prototype.mode = function () {
 }
 function startScanner() {
     scandata = []
-    document.getElementById("scanprogress").value=scancount;
+    document.getElementById("scanprogress").value=scandata.length;
     Quagga.init({
         inputStream: {
             name: "Live",
@@ -138,12 +138,11 @@ function startScanner() {
         var code = result.codeResult.code;
         if (calc(code)) {
             if (scandata.length < 10){
-                document.getElementById("scanprogress").value=scancount;
+                document.getElementById("scanprogress").value=scandata.length;
                 scandata.push(code);
-                scancount+=1;
             }
             else{
-                document.getElementById("scanprogress").value=scancount;
+                document.getElementById("scanprogress").value=scandata.length;
                 Quagga.offProcessed();
                 Quagga.offDetected();
                 Quagga.stop();
