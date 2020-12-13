@@ -1,7 +1,7 @@
 var scancount = 0
 var scandata = []
 $(function () {
-    alert("V1.5.9\nこれは試験版です。")
+    alert("V1.6.0\nこれは試験版です。")
     startScanner();
 });
 
@@ -108,8 +108,8 @@ function startScanner() {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 10,
-                width: 1280,
-                height: 960,
+                width: 640,
+                height: 480,
                 facingMode: "environment"
             },
         },
@@ -120,7 +120,7 @@ function startScanner() {
         },
         locator:{
             halfSample: true,
-            patchSize: "x-small",
+            patchSize: "medium",
         }
     }, function (err) {
         if (err) {
