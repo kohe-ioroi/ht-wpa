@@ -105,7 +105,7 @@ function startScanner() {
             type: "LiveStream",
             target: document.querySelector('#photo-area'),
             constraints: {
-                decodeBarCodeRate: 3,
+                decodeBarCodeRate: 5,
                 successTimeout: 500,
                 codeRepetition: true,
                 tryVertical: true,
@@ -140,29 +140,17 @@ function startScanner() {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
-        console.log("1")
-        if (scandata.length < 10){
-            console.log("2")
+        if (scandata.length < 15){
             scandata.push(code);
-            console.log("3")
             document.getElementById("scanprogress").value=scandata.length;
-            console.log("4")
         }
         else{
-            console.log("5")
             document.getElementById("scanprogress").value=scandata.length;
-            console.log("6")
             Quagga.offProcessed();
-            console.log("7")
             Quagga.offDetected();
-            console.log("8")
             Quagga.stop();
-            console.log("9")
             showload();
-            console.log("10")
             sendRequest(scandata.mode());
-            console.log("11")
         };
-        console.log("12")
     });
 }
