@@ -122,7 +122,7 @@ function startScanner() {
         },
         locator:{
             halfSample: true,
-            patchSize: "x-small",
+            patchSize: "medium",
         }
     }, function (err) {
         if (err) {
