@@ -1,7 +1,6 @@
-var scancount = 0
 var scandata = []
 $(function () {
-    alert("V1.6.0\nこれは試験版です。")
+    alert("V1.6.1\nこれは試験版です。")
     startScanner();
 });
 
@@ -94,7 +93,6 @@ Array.prototype.mode = function () {
 
 }
 function startScanner() {
-    scancount = 0
     scandata = []
     document.getElementById("scanprogress").value=scancount;
     Quagga.init({
@@ -108,8 +106,8 @@ function startScanner() {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 10,
-                width: 640,
-                height: 480,
+                width: 1280,
+                height: 720,
                 facingMode: "environment"
             },
         },
@@ -120,7 +118,7 @@ function startScanner() {
         },
         locator:{
             halfSample: true,
-            patchSize: "medium",
+            patchSize: "x-small",
         }
     }, function (err) {
         if (err) {
@@ -139,11 +137,12 @@ function startScanner() {
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
         if (calc(code)) {
-            if (scancount < 10){
+            if (scandata.length < 10){
                 document.getElementById("scanprogress").value=scancount;
                 scandata.push(code);
+                scancount+=1;
             }
-            else if (scancount == 10){
+            else{
                 document.getElementById("scanprogress").value=scancount;
                 Quagga.offProcessed();
                 Quagga.offDetected();
