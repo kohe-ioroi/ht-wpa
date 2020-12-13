@@ -28,7 +28,11 @@
             });
         }
     </script>
-    <script async src="https://cdn.jsdelivr.net/npm/pwacompat" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("mousewheel", scroll_control, { passive: false });
+        document.addEventListener("touchmove", scroll_control, { passive: false });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/pwacompat" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>HT</title>
     <script>
