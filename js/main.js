@@ -139,7 +139,7 @@ function startScanner() {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
-        if (scandata.length < 15){
+        if (scandata.length < 10){
             scandata.push(code);
             document.getElementById("scanprogress").value=scandata.length;
         }
