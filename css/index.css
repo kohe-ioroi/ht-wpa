@@ -1,9 +1,6 @@
 #photo-area.viewport canvas, video {
    position:absolute;
    margin:auto;
-   width:80%;
-   margin-right:10%;
-   margin-left:10%;
 }
 #main{
    width:90%;

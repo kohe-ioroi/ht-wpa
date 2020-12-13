@@ -1,6 +1,6 @@
-var scandata = []
+var scandata = [];
 $(function () {
-    alert("V1.6.2\nこれは試験版です。")
+    alert("V1.6.3\nこれは試験版です。");
     startScanner();
 });
 
@@ -132,14 +132,14 @@ function startScanner() {
         _scannerIsRunning = true;
     });
 
-    Quagga.onProcessed(function (result) { });
+    Quagga.onProcessed(function (result) {});
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
         if (calc(code)) {
             if (scandata.length < 10){
-                document.getElementById("scanprogress").value=scandata.length;
                 scandata.push(code);
+                document.getElementById("scanprogress").value=scandata.length;
             }
             else{
                 document.getElementById("scanprogress").value=scandata.length;
@@ -148,8 +148,7 @@ function startScanner() {
                 Quagga.stop();
                 showload();
                 sendRequest(scandata.mode());
-            }
-            
+            };
         };
     });
 }
