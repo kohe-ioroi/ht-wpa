@@ -1,6 +1,6 @@
 var scandata = [];
 $(function () {
-    alert("V1.6.3\nこれは試験版です。");
+    alert("V1.6.4\nこれは試験版です。");
     startScanner();
 });
 
@@ -106,8 +106,8 @@ function startScanner() {
                 codeRepetition: true,
                 tryVertical: true,
                 frameRate: 10,
-                width: 1280,
-                height: 720,
+                width: 600,
+                height: 600,
                 facingMode: "environment"
             },
         },
