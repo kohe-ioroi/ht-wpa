@@ -38,9 +38,9 @@
     </script>
 </head>
 <body>
-    <div id=load><img src="img/loading.gif" class="loading"><p class="loading center">通信中</p></div>
+    <div id=load><img src="img/loading.gif" class="loading"><p class="center">通信中</p></div>
     <div id=main>
-    <h3 class="center">HTスマホ</h3>
+    <h3 class="center">ﾐﾆﾊﾝﾃﾞｨ ﾊｰﾊﾞｰﾗﾝﾄﾞ店(20年12月12日ﾃﾞｰﾀ)</h3>
     <div id="input-area" class="center">
         <form onsubmit="return false;" action="">
             <input type="tel" id="jancode" name="jan_code" placeholder="JANコード" autocomplete="off" maxlength="13" style="width:80%;height:30px;font-size: 100%;">
@@ -48,7 +48,7 @@
             <button style="padding: 10px 20px;"onclick="sendRequest_input()">検索</button>
         </form>
     </div>
-    <div class="center"><progress id="scanprogress" value="0" max="15" style="width:50%;height:30px;"></progress><p>↑ゲージが最大になるまでスキャン↑</p></div>
+    <div class="center"><progress id="scanprogress" value="0" max="15" style="width:50%;height:30px;"></progress><p>↑ゲージが最大になるまでかざす↑</p><p>↓読み取りにくい時はバーコードを動かす↓</p></div>
     <div id="photo-area" class="viewport"></div>
     <script src="js/lib/jquery.min.js" type="text/javascript"></script>
     <script src="js/lib/quagga.min.js" type="text/javascript"></script>

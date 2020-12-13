@@ -1,6 +1,6 @@
 var scandata = [];
 $(function () {
-    alert("V1.6.4\nこれは試験版です。");
+    no_scroll();
     startScanner();
 });
 
@@ -95,6 +95,12 @@ Array.prototype.mode = function () {
     }
     return maxValue
 
+}
+function no_scroll() {
+    // PCでのスクロール禁止
+    document.addEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止
+    document.addEventListener("touchmove", scroll_control, { passive: false });
 }
 function startScanner() {
     scandata = []
