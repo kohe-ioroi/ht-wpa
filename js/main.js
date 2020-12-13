@@ -136,19 +136,17 @@ function startScanner() {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
-        if (calc(code)) {
-            if (scandata.length < 10){
-                scandata.push(code);
-                document.getElementById("scanprogress").value=scandata.length;
-            }
-            else{
-                document.getElementById("scanprogress").value=scandata.length;
-                Quagga.offProcessed();
-                Quagga.offDetected();
-                Quagga.stop();
-                showload();
-                sendRequest(scandata.mode());
-            };
+        if (scandata.length < 10){
+            scandata.push(code);
+            //document.getElementById("scanprogress").value=scandata.length;
+        }
+        else{
+            //document.getElementById("scanprogress").value=scandata.length;
+            Quagga.offProcessed();
+            Quagga.offDetected();
+            Quagga.stop();
+            showload();
+            sendRequest(scandata.mode());
         };
     });
 }
