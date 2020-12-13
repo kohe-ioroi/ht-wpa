@@ -17,6 +17,10 @@ function sendRequest(code) {
     });
 }
 function sendRequest_input(){
+    Quagga.offProcessed();
+    Quagga.offDetected();
+    Quagga.stop();
+    showload();
     sendRequest(document.getElementById("jancode").value);
     document.getElementById("jancode").value = "";
 }
@@ -105,7 +109,7 @@ function startScanner() {
                 successTimeout: 500,
                 codeRepetition: true,
                 tryVertical: true,
-                frameRate: 10,
+                frameRate: 15,
                 width: 600,
                 height: 600,
                 facingMode: "environment"
@@ -136,17 +140,29 @@ function startScanner() {
 
     Quagga.onDetected(function (result) {
         var code = result.codeResult.code;
+        console.log("1")
         if (scandata.length < 10){
+            console.log("2")
             scandata.push(code);
-            //document.getElementById("scanprogress").value=scandata.length;
+            console.log("3")
+            document.getElementById("scanprogress").value=scandata.length;
+            console.log("4")
         }
         else{
-            //document.getElementById("scanprogress").value=scandata.length;
+            console.log("5")
+            document.getElementById("scanprogress").value=scandata.length;
+            console.log("6")
             Quagga.offProcessed();
+            console.log("7")
             Quagga.offDetected();
+            console.log("8")
             Quagga.stop();
+            console.log("9")
             showload();
+            console.log("10")
             sendRequest(scandata.mode());
+            console.log("11")
         };
+        console.log("12")
     });
 }
