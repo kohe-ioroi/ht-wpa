@@ -6,6 +6,9 @@
    margin-left:10%;
 }
 #main{
+   width:90%;
+   margin-right: auto;
+   margin-left : auto;
 }
 #load{
    display: none;
