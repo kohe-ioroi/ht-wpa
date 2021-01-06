@@ -4,10 +4,10 @@ $(function () {
 });
 
 function sendRequest(code) {
-    var paramdata = {"JAN":code};
+    var paramdata = {"orderBy":"JAN","equalTo":code};
     jQuery.ajax({
     type: 'GET',
-    url: 'https://script.google.com/macros/s/AKfycbxMxAWI0zTAV_GIvk1V2_9YKqdWeqcTsJG_QoemwYawhW6ybstJw5aB/exec?',
+    url: 'https://konan089-a83b7-default-rtdb.firebaseio.com/Main.json',
     data: paramdata,
     dataType: 'text',
     crossDomain: true,
@@ -24,10 +24,12 @@ function sendRequest_input(){
     document.getElementById("jancode").value = "";
 }
 function displayData(data) {
-    arrayd=data.split(',');
+    alert(data)
+    jsondata = JSON.parse(data)
+    maindata = jsondata[Object.keys(jsondata)]
     pbcheck="X";
-    if(arrayd[4]){pbcheck="O"}
-    alert("部門:"+arrayd[0]+"\nJANコード:"+arrayd[1]+"\n商品名:"+arrayd[2]+"\nPB判定:"+pbcheck+"\n台番:"+arrayd[5]+" 段:"+arrayd[6]+" 列:"+arrayd[7]);
+    if(maindata["PB"] == 1){pbcheck="O"}
+    alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+"\n台番:"+maindata["Daiban"]+" 段:"+maindata["Tana"]+" 列:"maindata["Retu"]);
     showmain();
     startScanner();
 }
