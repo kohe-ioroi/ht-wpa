@@ -4,11 +4,9 @@ $(function () {
 });
 
 function sendRequest(code) {
-    var paramdata = {"orderBy":"JAN","equalTo":code};
     jQuery.ajax({
     type: 'GET',
-    url: 'https://konan089-a83b7-default-rtdb.firebaseio.com/Main.json',
-    data: paramdata,
+    url: 'https://konan089-a83b7-default-rtdb.firebaseio.com/Main.json?orderBy="JAN"&equalTo="'+code+'"',
     dataType: 'text',
     crossDomain: true,
     success: function(e){displayData(e)},
@@ -24,9 +22,8 @@ function sendRequest_input(){
     document.getElementById("jancode").value = "";
 }
 function displayData(data) {
-    alert(data)
     jsondata = JSON.parse(data)
-    maindata = jsondata[Object.keys(jsondata)]
+    maindata = jsondata[Object.keys(jsondata)[0]]
     pbcheck="X";
     if(maindata["PB"] == 1){pbcheck="O"}
     alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+"\n台番:"+maindata["Daiban"]+" 段:"+maindata["Tana"]+" 列:"+maindata["Retu"]);
