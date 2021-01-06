@@ -22,13 +22,23 @@ function sendRequest_input(){
     document.getElementById("jancode").value = "";
 }
 function displayData(data) {
-    jsondata = JSON.parse(data)
-    maindata = jsondata[Object.keys(jsondata)[0]]
+    if (data = "{}"){
+        alert("存在しないデータです。");
+        showmain();
+    }else{
+    daibantext = "";
+    jsondata = JSON.parse(data);
+    Object.keys(jsondata).forEach(function(i){
+        fordata = jsondata[i];
+        daibantext +=("\n台番:"+fordata["Daiban"]+" 段:"+fordata["Tana"]+" 列:"+fordata["Retu"]);
+    })
+    maindata = jsondata[Object.keys(jsondata)[0]];
     pbcheck="X";
-    if(maindata["PB"] == 1){pbcheck="O"}
-    alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+"\n台番:"+maindata["Daiban"]+" 段:"+maindata["Tana"]+" 列:"+maindata["Retu"]);
+    if(maindata["PB"] == 1){pbcheck="O"};
+    alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+daibantext);
     showmain();
     startScanner();
+    }
 }
 function ajaxerror(){
     alert("エラー！\nDBにデータが無いか、不正なコードです。\nもう一度読み取りして下さい。");

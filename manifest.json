@@ -4,6 +4,6 @@
     "display": "standalone",
     "scope":"/ht-pwa/",
     "start_url": "./index.html",
-    "icons": [
+    "icons": ["./favicon.ico"
     ]
 }
