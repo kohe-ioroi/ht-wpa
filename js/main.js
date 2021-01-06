@@ -29,7 +29,7 @@ function displayData(data) {
     maindata = jsondata[Object.keys(jsondata)]
     pbcheck="X";
     if(maindata["PB"] == 1){pbcheck="O"}
-    alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+"\n台番:"+maindata["Daiban"]+" 段:"+maindata["Tana"]+" 列:"maindata["Retu"]);
+    alert("部門:"+maindata["Bumon"]+"\nJANコード:"+maindata["JAN"]+"\n商品名:"+maindata["ItemName"]+"\nPB判定:"+pbcheck+"\n台番:"+maindata["Daiban"]+" 段:"+maindata["Tana"]+" 列:"+maindata["Retu"]);
     showmain();
     startScanner();
 }
